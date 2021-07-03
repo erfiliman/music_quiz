@@ -1,6 +1,8 @@
 import React from 'react';
+import {useSelector} from "react-redux";
 
 const Header = () => {
+	const username = useSelector(state => state.app.username)
 	return (
 		<div className="header">
 			<div className="heaedr-logo"></div>
@@ -10,7 +12,7 @@ const Header = () => {
 			<div className="header-user">
 				<div className="header-user__avatar"></div>
 				<div className="header-user__name">
-					<span>Leonid S.Chirkov</span>
+					<span>{username}</span>
 				</div>
 			</div>
 		</div>

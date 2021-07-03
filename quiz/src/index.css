@@ -74,6 +74,16 @@ select {
   }
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 body {
   font-size: 16px;
   color: #ffffff;
@@ -82,6 +92,10 @@ body {
 a {
   color: inherit; /* blue colors for links too */
   text-decoration: inherit; /* no underline */
+}
+
+input:disabled {
+  background-color: #cfcfcf;
 }
 
 .main-container{
@@ -243,10 +257,6 @@ a {
   transition: all 0.2s ease-in;
 }
 
-
-
-
-
 .menu-item.menu-item_active {
   background-color: rgba(6, 0, 102, 0.7);
 }
@@ -261,4 +271,117 @@ a {
 
 .menu-item.menu-item_active.menu-item_play {
   background-image: url("./img/puzzle.png");
+}
+
+.create-game-container {
+  padding: 2rem;
+}
+
+.form-row {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.form-text {
+  height: 100%;
+  display: block;
+  width: 100%;
+  outline: none;
+  min-height: 38px;
+  border: none;
+  border-radius: 4px;
+  border: 1px solid hsl(0, 0%, 80%);
+  padding: 2px 8px;
+  transition: all 100ms;
+}
+
+.form-text:focus {
+  border-color: #2684FF;
+  box-shadow: 0 0 0 1px #2684FF;
+}
+
+.form-number-container {
+  position: relative;
+}
+
+.form-select {
+  color: #000000;
+}
+
+.unselectable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.form-number-control {
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #cfcfcf;
+  width: 36px;
+  height: 36px;
+  position: absolute;
+  top: 1px;
+  transition: all 0.2s ease-in;
+  cursor: pointer;
+}
+
+.form-number-control:hover {
+  background-color: #cfcfcf;
+  color: #9f9f9f;
+}
+
+.form-number-control_minus {
+  right: 0;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.form-number-control_plus {
+  right: 38px;
+}
+
+.form-row_group-btn {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(8rem, 20rem));
+}
+
+.button-choose-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  outline: none;
+  cursor: pointer;
+  border-radius: 4px;
+  border: none;
+  padding: 1rem;
+  transition: all 0.2s ease-in;
+  color: #ffffff;
+  font-weight: bold;
+  background: linear-gradient(
+          117deg
+          , rgb(216 234 243) 0%, rgb(111 179 236) 100%);
+  box-shadow: 0 0 14px 0px #2396f6a6;
+}
+
+.button-choose-form__img,.button-choose-form__description {
+  padding: 1rem;
+}
+
+.button-choose-form_active {
+  background: linear-gradient(
+          117deg
+          , rgb(95, 247, 217) 0%, rgb(31, 246, 146) 100%);
+  box-shadow: 0 0 14px 0px rgb(31, 246, 146);
+}
+
+
+.button-choose-form:active {
+  background-color: #cfcfcf;
 }

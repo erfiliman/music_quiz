@@ -1,8 +1,10 @@
 import {SET_THEME_TYPE} from "./types";
+import {getName} from "../uniqueName";
 
 const initialState = {
 	loading: true,
-	themeDark: false
+	themeDark: false,
+	username: localStorage.getItem('username') == undefined ? getName() :localStorage.getItem('username')
 }
 
 export const appReducer = (state = initialState, action) => {

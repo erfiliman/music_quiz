@@ -1,3 +1,6 @@
 export const SET_THEME_TYPE = "SET_THEME_TYPE";
 export const SET_ACTIVE_MENU_ITEM = "SET_ACTIVE_MENU_ITEM";
 export const SET_JOINED_IN_GAME = "SET_JOINED_IN_GAME";
+export const SET_GAME_ROOM = "SET_GAME_ROOM";
+export const SET_HOST_GAME = "SET_HOST_GAME";
+export const SET_START_GAME = "SET_START_GAME";

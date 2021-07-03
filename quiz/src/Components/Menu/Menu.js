@@ -12,7 +12,8 @@ const Menu = () => {
 			{
 				links.map((item, index)=>{
 					return (
-						<MenuItem cssClass={item.cssClass} nameItem={item.name} slug={item.link} key={`${item.name+index}`}/>
+						index==0?<MenuItem cssClass={item.cssClass} exact={true} nameItem={item.name} slug={item.link} key={`${item.name+index}`}/>:
+							<MenuItem cssClass={item.cssClass} exact={false} nameItem={item.name} slug={item.link} key={`${item.name+index}`}/>
 					)
 				})
 			}
