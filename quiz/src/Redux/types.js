@@ -4,3 +4,4 @@ export const SET_JOINED_IN_GAME = "SET_JOINED_IN_GAME";
 export const SET_GAME_ROOM = "SET_GAME_ROOM";
 export const SET_HOST_GAME = "SET_HOST_GAME";
 export const SET_START_GAME = "SET_START_GAME";
+export const SET_USERS_GAME = "SET_USERS_GAME";

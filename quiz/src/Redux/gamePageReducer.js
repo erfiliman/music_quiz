@@ -1,10 +1,11 @@
-import {SET_GAME_ROOM, SET_HOST_GAME, SET_JOINED_IN_GAME, SET_START_GAME} from "./types";
+import {SET_GAME_ROOM, SET_HOST_GAME, SET_JOINED_IN_GAME, SET_START_GAME, SET_USERS_GAME} from "./types";
 
 const initialState = {
 	isJoined: false,
-	roomId: null,
+	roomId: localStorage.getItem('roomId'),
 	isHost: false,
 	isStart: false,
+	users: [],
 }
 
 export const gamePageReducer = (state = initialState, action) => {
@@ -28,6 +29,11 @@ export const gamePageReducer = (state = initialState, action) => {
 			return {
 				...state,
 				isStart: action.payload
+			}
+		case SET_USERS_GAME:
+			return {
+				...state,
+				users: [...state.users.slice(0,0), ...action.payload]
 			}
 		default:
 			return state;

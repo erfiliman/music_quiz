@@ -26,7 +26,6 @@ const CreateGameForm = () => {
 	}
 
 	useEffect(()=>{
-		console.log(inputCountMusic)
 	},[])
 
 	const handlerInputPlaylist = (e)=>{
@@ -34,6 +33,7 @@ const CreateGameForm = () => {
 	}
 	return (
 		<form className="form form-create-game">
+			<div className="title-1">Create Game</div>
 			<div className="form-row">
 					<span className="form-label">
 						Username:
@@ -73,7 +73,7 @@ const CreateGameForm = () => {
 			</div>
 			<div className="form-row form-row_group-btn">
 				{
-					optionsGameMode.map((item, index)=> <ButtonChoose index={index} handler={setGameMode} img={item.img} isActive={index==gameMode} description={item.description}/>)
+					optionsGameMode.map((item, index)=> <ButtonChoose key={index+"-buttonChoose"} index={index} handler={setGameMode} img={item.img} isActive={index==gameMode} description={item.description}/>)
 				}
 			</div>
 		</form>

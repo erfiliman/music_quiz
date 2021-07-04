@@ -381,6 +381,27 @@ input:disabled {
   box-shadow: 0 0 14px 0px rgb(31, 246, 146);
 }
 
+.create-game-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 1rem;
+}
+
+.title-1 {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.form {
+  padding: 0.5rem;
+}
+
+.leader-board {
+  padding: 0.5rem;
+}
+
 
 .button-choose-form:active {
   background-color: #cfcfcf;
