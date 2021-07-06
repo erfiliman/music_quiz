@@ -1,12 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import Select from "react-select";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import NumberCounter from "../Forms/NumberCounter";
 import ButtonChoose from "../Forms/ButtonChoose";
+import {setStartGame, startGame} from "../../Redux/actions";
 
 const CreateGameForm = () => {
 	const isHost = useSelector((state)=> state.gamePageReducer.isHost);
 	const [inputName, setInputName] = useState(useSelector((state => state.app.username)));
+	const dispatch = useDispatch();
 	const [gameMode, setGameMode] = useState(0);
 	const [inputPlaylist, setInputPlaylist] = useState();
 	const [inputCountMusic, setInputCountMusic] = useState(5);
@@ -31,8 +33,24 @@ const CreateGameForm = () => {
 	const handlerInputPlaylist = (e)=>{
 		setInputPlaylist(e.value);
 	}
+	const customStyles = {
+		control: (provided, state) => ({
+			...provided,
+			borderRadius: "15px"
+		}),
+		menu: (provided, state) => ({
+			...provided,
+			borderRadius: "15px",
+			overflow: "hidden"
+		})
+	}
+
+	const onSubmitHandler = (e) => {
+		e.preventDefault();
+		dispatch(startGame({}))
+	}
 	return (
-		<form className="form form-create-game">
+		<form className="form form-create-game" onSubmit={onSubmitHandler}>
 			<div className="title-1">Create Game</div>
 			<div className="form-row">
 					<span className="form-label">
@@ -48,7 +66,7 @@ const CreateGameForm = () => {
 					</span>
 			</div>
 			<div className="form-row">
-				<Select className="form-select" isDisabled={!isHost} options={optionsSelect} selectedValue={inputPlaylist} onChange={handlerInputPlaylist}/>
+				<Select styles={customStyles} className="form-select" isDisabled={!isHost} options={optionsSelect} selectedValue={inputPlaylist} onChange={handlerInputPlaylist}/>
 			</div>
 			<div className="form-row">
 				<span className="form-label">
@@ -76,6 +94,11 @@ const CreateGameForm = () => {
 					optionsGameMode.map((item, index)=> <ButtonChoose key={index+"-buttonChoose"} index={index} handler={setGameMode} img={item.img} isActive={index==gameMode} description={item.description}/>)
 				}
 			</div>
+			{
+				isHost&&<div className="form-row">
+					<input type="submit" value="Start" className="button button_blue form-create-game-btn"/>
+				</div>
+			}
 		</form>
 	);
 };

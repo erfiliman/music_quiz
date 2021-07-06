@@ -23,6 +23,9 @@ const GamePage = () => {
 		socket.on('ADD_USER', (users)=> {
 			dispatch(setUsersGame(users))
 		});
+		socket.on('ADD_USER', (users)=> {
+			dispatch(setUsersGame(users))
+		});
 	},[])
 
 	return (

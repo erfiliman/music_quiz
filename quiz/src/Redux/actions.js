@@ -1,4 +1,11 @@
-import {SET_GAME_ROOM, SET_HOST_GAME, SET_JOINED_IN_GAME, SET_THEME_TYPE, SET_USERS_GAME} from "./types";
+import {
+	LEAVE_THE_GAME,
+	SET_GAME_ROOM,
+	SET_HOST_GAME,
+	SET_JOINED_IN_GAME,
+	SET_THEME_TYPE,
+	SET_USERS_GAME
+} from "./types";
 import axios from 'axios';
 import socket from "../sockets";
 
@@ -13,6 +20,12 @@ export const setJoinedInGame = (isJoined) => {
 	return {
 		type: SET_JOINED_IN_GAME,
 		payload: isJoined
+	}
+}
+
+export const leaveTheGame = () => {
+	return {
+		type: LEAVE_THE_GAME
 	}
 }
 
@@ -38,10 +51,8 @@ export const setUsersGame = (users) => {
 	}
 }
 
-export const setStartGame = () => {
-	return async dispatch => {
-
-	}
+export const startGame = (obj) => {
+	socket.emit('START_GAME', obj);
 }
 
 export const joinGame = (obj) => {

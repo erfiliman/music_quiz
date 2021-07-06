@@ -6,6 +6,7 @@ import CreateGameForm from "./CreateGameForm";
 import StartingQuiz from "./StartingQuiz";
 import LeaderBoard from "./LeaderBoard";
 import {joinGame, joinRoomById} from "../../Redux/actions";
+import LeaveGame from "./LeaveGame";
 
 const CreateGame = () => {
 	const isStart = useSelector((state)=> state.gamePageReducer.isStart);

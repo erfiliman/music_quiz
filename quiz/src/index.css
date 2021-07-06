@@ -172,12 +172,57 @@ input:disabled {
 .button {
   cursor: pointer;
   transition: all 0.2s ease-in;
+  padding: 0.4rem 1.2rem;
+  outline: none;
+  border: none!important;
+  color: #ffffff;
+  font-size: 1.2rem;
+  text-align: center;
+  border-radius: 15px;
+  font-weight: bold;
+}
+
+.form-create-game-btn {
+  margin-left: auto;
+  margin-top: 2rem;
+  display: block;
 }
 
 .button:hover {
   transform: translateY(-2px);
+}
+
+.button_blue {
+  background: linear-gradient(117deg, rgba(95,198,247,1) 0%, rgba(31,147,246,1) 100%);
+  box-shadow: 0 0 14px 0px #2396f6a6;
+}
+
+.button_blue:hover {
+  transform: translateY(-2px);
   box-shadow: 0 0 20px 0px #2396f6a6;
 }
+
+.button_red {
+  background: linear-gradient(117deg, rgb(247, 95, 95) 0%, rgb(246, 31, 63) 100%);
+  box-shadow: 0 0 14px 0px rgba(243, 42, 42, 0.65);
+}
+
+.button_red:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px 0px rgba(246, 31, 63, 0.9);
+}
+
+
+.button_leave-game {
+  position: absolute;
+  width: 100px;
+  top: 2rem;
+  border-radius: 15px;
+  left: 2rem;
+  font-size: 1rem;
+}
+
+
 
 .game-type__title {
   font-size: 1.4rem;
@@ -274,7 +319,8 @@ input:disabled {
 }
 
 .create-game-container {
-  padding: 2rem;
+  padding: 4rem 2rem;
+  position: relative;
 }
 
 .form-row {
@@ -289,9 +335,9 @@ input:disabled {
   outline: none;
   min-height: 38px;
   border: none;
-  border-radius: 4px;
+  border-radius: 15px;
   border: 1px solid hsl(0, 0%, 80%);
-  padding: 2px 8px;
+  padding: 2px 16px;
   transition: all 100ms;
 }
 
@@ -358,7 +404,7 @@ input:disabled {
   align-items: center;
   outline: none;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 15px;
   border: none;
   padding: 1rem;
   transition: all 0.2s ease-in;
