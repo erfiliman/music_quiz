@@ -3,11 +3,11 @@ import {useDispatch} from "react-redux";
 import {leaveTheGame} from "../../Redux/actions";
 import {useHistory} from "react-router-dom";
 
-const LeaveGame = () => {
+const LeaveGame = ({roomId}) => {
 	const dispatch = useDispatch()
 	const history = useHistory();
 	const onClickHandler = () => {
-		dispatch(leaveTheGame())
+		dispatch(leaveTheGame(roomId))
 		history.push("/play");
 	}
 	return (

@@ -4,7 +4,14 @@ import ChooseTypeGame from "./ChooseTypeGame";
 import {Route, useHistory} from "react-router-dom";
 import CreateGame from "./CreateGame";
 import socket from "../../sockets";
-import {setUsersGame} from "../../Redux/actions";
+import {
+	setAnswered,
+	setAnswersGame,
+	setQuestionGame, setShowResult,
+	setStartGame,
+	setTimeGame,
+	setUsersGame
+} from "../../Redux/actions";
 
 const GamePage = () => {
 	const roomId = useSelector((state)=> state.gamePageReducer.roomId);
@@ -23,9 +30,23 @@ const GamePage = () => {
 		socket.on('ADD_USER', (users)=> {
 			dispatch(setUsersGame(users))
 		});
-		socket.on('ADD_USER', (users)=> {
-			dispatch(setUsersGame(users))
+		socket.on('START_GAME', ()=> {
+			dispatch(setStartGame(true))
 		});
+		socket.on('SECONDS', (time)=> {
+			dispatch(setTimeGame(time))
+		});
+		socket.on('NEW_QUESTION', (obj)=> {
+			dispatch(setAnswered(false));
+			dispatch(setShowResult(false));
+			dispatch(setQuestionGame(obj.question));
+			dispatch(setAnswersGame(obj.answers));
+		});
+		socket.on('RESULT_QUESTION', (users)=> {
+			dispatch(setUsersGame(users));
+			dispatch(setShowResult(true));
+		});
+
 	},[])
 
 	return (

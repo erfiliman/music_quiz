@@ -7,8 +7,9 @@ import {setStartGame, startGame} from "../../Redux/actions";
 
 const CreateGameForm = () => {
 	const isHost = useSelector((state)=> state.gamePageReducer.isHost);
-	const [inputName, setInputName] = useState(useSelector((state => state.app.username)));
+	const roomId = useSelector((state)=> state.gamePageReducer.roomId);
 	const dispatch = useDispatch();
+	const [inputName, setInputName] = useState(useSelector((state => state.app.username)));
 	const [gameMode, setGameMode] = useState(0);
 	const [inputPlaylist, setInputPlaylist] = useState();
 	const [inputCountMusic, setInputCountMusic] = useState(5);
@@ -47,7 +48,7 @@ const CreateGameForm = () => {
 
 	const onSubmitHandler = (e) => {
 		e.preventDefault();
-		dispatch(startGame({}))
+		dispatch(startGame({roomId: roomId, playlist: inputPlaylist, count: inputCountMusic, time: inputAnswerTime, mode: gameMode}))
 	}
 	return (
 		<form className="form form-create-game" onSubmit={onSubmitHandler}>

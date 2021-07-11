@@ -23,11 +23,17 @@ const CreateGame = () => {
 		<div className="create-game-container">
 			{ !isStart?
 				<>
-					<LeaveGame/>
+					<LeaveGame roomId={roomId}/>
 					<CreateGameForm />
 					<LeaderBoard/>
 				</>
-				 : <StartingQuiz/> }
+				 :
+				<>
+					<LeaveGame roomId={roomId}/>
+					<StartingQuiz/>
+					<LeaderBoard/>
+				</>
+				}
 		</div>
 	);
 };

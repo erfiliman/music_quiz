@@ -9,7 +9,6 @@ function App() {
 		<div className="main-container">
 			<Header/>
 			<div className="main-content">
-				<Menu/>
 				<div className="content-container">
 					<Route path="/">
 
