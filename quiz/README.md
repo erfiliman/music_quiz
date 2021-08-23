@@ -1,3 +1,1 @@
-# Hello! It is "Music Quiz"
-
-hi
+https://lenad.site/
